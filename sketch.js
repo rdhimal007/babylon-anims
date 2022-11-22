@@ -34,6 +34,35 @@ var createScene = function () {
     var newsphere = createSphere(0, 1, 0, 2);
     newsphere.material = hexMat('#ff0000');
 
+
+    // create the object 
+    var obj3 = createBox(2,1,2,2,2);
+    obj3.material = hexMat('#e07a5f');
+
+    var obj4 = createBox(1,0,0,1,22,2);
+    obj4.material = hexMat('#f0ff16');
+    
+    var obj5 = createSphere(0,-4,0,3);
+    obj5.material = hexMat('#75ff7e');
+
+    // create animation
+    var obj1 = {subj: newsphere.position, prop: 'y', val:5};
+    var obj1_1 = {subj: newsphere.material, prop: 'al', val:0};
+
+    var obj2_1 = {subj: obj3.rotation, prop: 'z', val:Math.PI/5};
+    var obj2_2 = {subj: obj3.material, prop: 'al', val:0};
+
+    var obj3_1 = {subj: obj4.rotation, prop: 'z', val:Math.PI/2};
+    var obj3_2 = {subj: obj4.material, prop: 'al', val:0};
+
+    var obj4_1 = {subj: obj5.rotation, prop: 'z', val:Math.PI/7};
+    var obj4_2 = {subj: obj5.material, prop: 'al', val:0};
+    // make array of animation object
+    let arrayAnime = [obj1,obj1_1, obj2_1, obj2_2, obj3_1, obj3_2,  obj4_1, obj4_2 ];
+
+    // call and make animation
+    animate(arrayAnime, scene);
+
     // Our built-in 'ground' shape.
     var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
 
