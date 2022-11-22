@@ -45,6 +45,8 @@ var createScene = function () {
     var obj5 = createSphere(0,-4,0,3);
     obj5.material = hexMat('#75ff7e');
 
+    var shark = new meshModel('./shark.glb', 0.9);
+
     // create animation
     var obj1 = {subj: newsphere.position, prop: 'y', val:5};
     var obj1_1 = {subj: newsphere.material, prop: 'al', val:0};
@@ -57,11 +59,13 @@ var createScene = function () {
 
     var obj4_1 = {subj: obj5.rotation, prop: 'z', val:Math.PI/7};
     var obj4_2 = {subj: obj5.material, prop: 'al', val:0};
+
+    var obj_7 = {subj: shark.position, prop: 'x', val: 7};
     // make array of animation object
-    let arrayAnime = [obj1,obj1_1, obj2_1, obj2_2, obj3_1, obj3_2,  obj4_1, obj4_2 ];
+    let arrayAnime = [obj1,obj1_1, obj2_1, obj2_2, obj3_1, obj3_2,  obj4_1, obj4_2,obj_7];
 
     // call and make animation
-    animate(arrayAnime, scene);
+    animate(arrayAnime, scene, 2, true);
 
     // Our built-in 'ground' shape.
     var ground = BABYLON.MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
